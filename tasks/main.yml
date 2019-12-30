@@ -1,0 +1,20 @@
+---
+# install_net-snmp_packages/tasks/main.yml
+
+- set_fact:
+    netsnmp_packages_to_be_installed: ['net-snmp', 'snmp-mibs']
+  when: 'ansible_os_family == "Suse"'
+
+- set_fact:
+    netsnmp_packages_to_be_installed: ['libsnmp-base', 'snmp', 'snmpd', 'snmptrapd']
+  when: 'ansible_os_family == "Debian"'
+
+- set_fact:
+    netsnmp_packages_to_be_installed: ['net-snmp', 'net-snmp-utils', 'snmpcheck']
+  when: 'ansible_os_family == "RedHat"'
+
+- name: "Install packages"
+  package:
+    name: "{{ netsnmp_packages_to_be_installed}}"
+    state: "present"
+

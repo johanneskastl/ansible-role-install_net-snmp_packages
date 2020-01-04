@@ -6,7 +6,7 @@
   when: 'ansible_os_family == "Suse"'
 
 - set_fact:
-    netsnmp_packages_to_be_installed: ['libsnmp-base', 'snmp', 'snmpd', 'snmptrapd']
+    netsnmp_packages_to_be_installed: ['libsnmp-base', 'snmp', 'snmpd', 'snmptrapd', 'libsnmp-dev']
   when: 'ansible_os_family == "Debian"'
 
 - set_fact:

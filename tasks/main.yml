@@ -16,8 +16,8 @@
     netsnmp_packages_to_be_installed: ['net-snmp', 'net-snmp-utils', 'snmpcheck']
   when: 'ansible_os_family == "RedHat"'
 
-- name: "Install packages"
+- name: 'Install packages'
   package:
     name: "{{ netsnmp_packages_to_be_installed}}"
-    state: "present"
+    state: 'present'
 

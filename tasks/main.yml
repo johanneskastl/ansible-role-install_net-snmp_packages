@@ -1,20 +1,23 @@
 ---
 # install_net-snmp_packages/tasks/main.yml
 
-- set_fact:
+- name: 'set package names on SUSE/openSUSE'
+  set_fact:
     netsnmp_packages_to_be_installed: ['net-snmp', 'snmp-mibs']
   when: 'ansible_os_family == "Suse"'
 
-- set_fact:
+- name: 'set package names on Debian/Ubuntu'
+  set_fact:
     netsnmp_packages_to_be_installed: ['libsnmp-base', 'snmp', 'snmpd', 'snmptrapd', 'libsnmp-dev']
   when: 'ansible_os_family == "Debian"'
 
-- set_fact:
+- name: 'set package names on CentOS/RedHat/Fedora'
+  set_fact:
     netsnmp_packages_to_be_installed: ['net-snmp', 'net-snmp-utils', 'snmpcheck']
   when: 'ansible_os_family == "RedHat"'
 
-- name: "Install packages"
+- name: 'Install packages'
   package:
-    name: "{{ netsnmp_packages_to_be_installed}}"
-    state: "present"
+    name: "{{ netsnmp_packages_to_be_installed }}"
+    state: 'present'
 

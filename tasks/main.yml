@@ -18,6 +18,6 @@
 
 - name: 'Install packages'
   package:
-    name: "{{ netsnmp_packages_to_be_installed}}"
+    name: "{{ netsnmp_packages_to_be_installed }}"
     state: 'present'
 

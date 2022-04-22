@@ -1,5 +1,6 @@
 galaxy_info:
   role_name: 'install_net-snmp_packages'
+  namespace: 'johanneskastl'
   author: 'Johannes Kastl'
   description: 'Install net-snmp packages on *SUSE, Fedora, CentOS or Debian'
   company: 'B1 Systems GmbH'

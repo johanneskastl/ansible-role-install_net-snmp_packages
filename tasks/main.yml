@@ -20,4 +20,3 @@
   package:
     name: "{{ netsnmp_packages_to_be_installed }}"
     state: 'present'
-
